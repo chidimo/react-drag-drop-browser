@@ -1,59 +1,81 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import { FiUpload } from 'react-icons/fi';
+const FeatherIconUpload = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="feather feather-upload"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="17 8 12 3 7 8"></polyline>
+      <line x1="12" y1="3" x2="12" y2="15"></line>
+    </svg>
+  );
+};
 
 const FileBrowser = props => {
   const {
-    DDSinputID,
-    DDSiconStyle,
-    DDSiconComponent,
-    DDSfileBrowserHandler,
-    DDSfileBrowserDivClass,
-    DDSfileBrowserDivStyle,
-    DDSdisplayText,
-    DDSdisplayTextClass,
-    DDSacceptFileTypes,
+    RDDSinputID,
+    RDDSiconStyle,
+    RDDSiconComponent,
+    RDDSfileBrowserHandler,
+    RDDSfileBrowserDivClass,
+    RDDSfileBrowserDivStyle,
+    RDDSdisplayText,
+    RDDSdisplayTextClass,
+    RDDSacceptFileTypes,
   } = props;
 
   const pickHandler = e => {
     e.preventDefault();
     e.stopPropagation();
-    DDSfileBrowserHandler([ ...e.target.files ]);
+    RDDSfileBrowserHandler([ ...e.target.files ]);
   };
 
   return (
-    <div className={DDSfileBrowserDivClass} style={DDSfileBrowserDivStyle}>
-      {DDSiconComponent !== undefined ? (
-        <DDSiconComponent
-          style={{ width: '20px', height: '20px', ...DDSiconStyle }}
+    <div
+      className={RDDSfileBrowserDivClass}
+      style={RDDSfileBrowserDivStyle}
+    >
+      {RDDSiconComponent !== undefined ? (
+        <RDDSiconComponent
+          style={{ width: '20px', height: '20px', ...RDDSiconStyle }}
         />
       ) : (
-        <FiUpload
-          style={{ width: '20px', height: '20px', ...DDSiconStyle }}
+        <FeatherIconUpload
+          style={{ width: '20px', height: '20px', ...RDDSiconStyle }}
         />
       )}
 
       <p>
         {' '}
         <button
-          className={DDSdisplayTextClass}
+          className={RDDSdisplayTextClass}
           onClick={() => {
             document
-              .getElementById('__dds_react_component_input__')
+              .getElementById('__RDDS_react_component_input__')
               .click();
           }}
         >
-          {DDSdisplayText ||
+          {RDDSdisplayText ||
                         'Drag a file here to upload or click here to browse for files.'}
         </button>
         <input
           onChange={e => pickHandler(e)}
           style={{ display: 'none' }}
-          id={DDSinputID || '__dds_react_component_input__'}
+          id={RDDSinputID || '__RDDS_react_component_input__'}
           type="file"
           multiple
-          accept={DDSacceptFileTypes}
+          accept={RDDSacceptFileTypes}
         />
       </p>
     </div>
@@ -61,15 +83,15 @@ const FileBrowser = props => {
 };
 
 FileBrowser.propTypes = {
-  DDSinputID: propTypes.string,
-  DDSiconStyle: propTypes.object,
-  DDSiconComponent: propTypes.func,
-  DDSdisplayText: propTypes.string,
-  DDSdisplayTextClass: propTypes.string,
-  DDSfileBrowserDivClass: propTypes.string,
-  DDSfileBrowserDivStyle: propTypes.object,
-  DDSfileBrowserHandler: propTypes.func.isRequired,
-  DDSacceptFileTypes: propTypes.string,
+  RDDSinputID: propTypes.string,
+  RDDSiconStyle: propTypes.object,
+  RDDSiconComponent: propTypes.func,
+  RDDSdisplayText: propTypes.string,
+  RDDSdisplayTextClass: propTypes.string,
+  RDDSfileBrowserDivClass: propTypes.string,
+  RDDSfileBrowserDivStyle: propTypes.object,
+  RDDSfileBrowserHandler: propTypes.func.isRequired,
+  RDDSacceptFileTypes: propTypes.string,
 };
 
 export default FileBrowser;

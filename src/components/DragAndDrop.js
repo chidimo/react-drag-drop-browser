@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import propTypes from 'prop-types';
 
 const DragAndDrop = props => {
-  const { fileDropHandler, children } = props;
+  const { RDDSfileDropHandler, children } = props;
 
   // eslint-disable-next-line no-unused-vars
   const [ dragging, setDragging ] = useState(false);
@@ -43,7 +43,7 @@ const DragAndDrop = props => {
     e.stopPropagation();
     setDragging(false);
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      fileDropHandler([ ...e.dataTransfer.files ]);
+      RDDSfileDropHandler([ ...e.dataTransfer.files ]);
       e.dataTransfer.clearData();
       dragCounter = 0;
     }
@@ -65,7 +65,7 @@ const DragAndDrop = props => {
 
 DragAndDrop.propTypes = {
   children: propTypes.object,
-  fileDropHandler: propTypes.func,
+  RDDSfileDropHandler: propTypes.func,
 };
 
 export default DragAndDrop;
