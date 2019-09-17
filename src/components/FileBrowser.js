@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-const FeatherIconUploadIcon = () => {
+const FiUpload = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const FileBrowser = props => {
           style={{ width: '20px', height: '20px', ...RDDBIconStyle }}
         />
       ) : (
-        <FeatherIconUploadIcon
+        <FiUpload
           style={{ width: '20px', height: '20px', ...RDDBIconStyle }}
         />
       )}
