@@ -88,8 +88,8 @@ export default App;
 
 ## props
 
-Prop | Default | Function
-| --- | --- | --- | --- |
+|       Prop       |       Default    |     Function     |
+| ---------------- | ---------------- | ---------------- |
 |`RDDBInputID` (*optional, string*) | `__RDDB_input__` | Useful when rendering several file uploaders on the same page, where each ID is required to be unique|
 |`RDDBIconStyle` (*optional, object*) | `{ width: '20px', height: '20px' }` | For passing extra styling to the default file upload icon. |
 | `RDDBIconComponent` (*optional, Component*) | [feathericons](https://feathericons.com/) svg | Use this to pass a file upload icon of your choice. The only requirement is that it must be an `svg` element wrapped up as a `React` component. Default is shown [below](#default-icon). |
