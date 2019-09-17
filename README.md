@@ -70,7 +70,7 @@ function App() {
       )}
       <DragDropSelect
         RDDBDragDropHandler={updateResourceFileArray}
-        RDDBSelectFileHandler={updateResourceFileArray}
+        RDDBFileBrowserHandler={updateResourceFileArray}
         RDDBAcceptFileTypes={'application/pdf'}
         RDDBFileBrowserDivClass={'upload-box-frame'}
         RDDBDisplayTextClass={'display-text'}
@@ -100,7 +100,7 @@ export default App;
 | `RDDBFileBrowserDivStyle` (*optinal, object*) | none | Style the drag and drop area.
 | `RDDBAcceptFileTypes` (*optional, string*) | none | Specify acceptable file types. |
 | `RDDBDragDropHandler` (*required, function*) | none | callback that receives an array of files |
-| `RDDBSelectFileHandler` (*required, function*) | none | callback that receives an array of files |
+| `RDDBFileBrowserHandler` (*required, function*) | none | callback that receives an array of files |
 
 ### Default icon
 
