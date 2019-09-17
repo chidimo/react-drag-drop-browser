@@ -1,6 +1,6 @@
 # `react-drag-drop-browser`
 
-Simple, customizable react drag and drop component. Also has a file browser.
+Simple, customizable react drag and drop component. Also comes with a file browser.
 
 See demo <https://codesandbox.io/embed/react-drag-drop-browser-demo-6j6rl>
 
