@@ -16,23 +16,28 @@ Installation can be done with `yarn` or `npm`
 The example below shows how to use the `DragDropSelect` component to build an array of `.pdf` files using the `useState` hook.
 
 ```jsx
+// utils.js
+const utils = {
+    fileInFileArray: (fileArray, file) => {
+        for (const f of fileArray) {
+            if (f.name === file.name) {
+                return true;
+            }
+        }
+        return false;
+    },
+
+    const fileTooLarge: (file, maxSize) => {
+        return file && file.size >= 1024 * 1024 * maxSize;
+    },
+};
+
+export default utils;
+
+// App.js
 import React, { useState } from 'react';
 import filesize from 'filesize';
-
 import { DragDropSelect } from 'react-drag-drop-browser';
-
-import utils from './utils';
-
-const fileTooLarge: (file, maxSize) => {
-    // max 20MB file
-    return file && file.size >= 1024 * 1024 * maxSize;
-},
-
-import React, { useState } from 'react';
-import filesize from 'filesize';
-
-import { DragDropSelect } from 'react-drag-drop-browser';
-
 import utils from './utils';
 
 function App() {
@@ -47,7 +52,8 @@ function App() {
       if (!name) {
         return {};
       } else if (utils.fileInFileArray(fileList, file)) {
-        alert(`${file.name} is already listed`);
+        setError(true);
+        setErrorMsg(`${file.name} is already listed`);
         return {};
       } else if (utils.fileTooLarge(file, 1)) {
         setError(true);
