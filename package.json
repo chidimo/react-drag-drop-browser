@@ -1,6 +1,6 @@
 {
     "name": "react-drag-drop-browser",
-    "version": "1.1.1",
+    "version": "1.1.3",
     "description": "Simple, customizable react drag and drop component. Also has a file browser.",
     "main": "dist/index.js",
     "scripts": {

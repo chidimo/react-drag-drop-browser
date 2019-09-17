@@ -45,10 +45,7 @@ const FileBrowser = props => {
   const inputID = RDDBInputID || '__RDDB_input__';
 
   return (
-    <div
-      className={RDDBFileBrowserDivClass}
-      style={RDDBFileBrowserDivStyle}
-    >
+    <div className={RDDBFileBrowserDivClass} style={RDDBFileBrowserDivStyle}>
       {RDDBIconComponent !== undefined ? (
         <RDDBIconComponent
           style={{ width: '20px', height: '20px', ...RDDBIconStyle }}
@@ -64,20 +61,18 @@ const FileBrowser = props => {
         <button
           className={RDDBDisplayTextClass}
           onClick={() => {
-            document
-              .getElementById(inputID)
-              .click();
+            document.getElementById(inputID).click();
           }}
         >
           {RDDBDisplayText ||
-                        'Drag a file here to upload or click here to browse for files.'}
+            'Drag a file here to upload or click here to browse for files.'}
         </button>
         <input
           onChange={e => pickHandler(e)}
           style={{ display: 'none' }}
           id={inputID}
           type="file"
-          multiple={ RDDBAcceptMultiple || true }
+          multiple={RDDBAcceptMultiple || true}
           accept={RDDBAcceptFileTypes}
         />
       </p>

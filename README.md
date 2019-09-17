@@ -92,6 +92,7 @@ export default App;
 | ---------------- | ---------------- | ---------------- |
 |`RDDBInputID` (*optional, string*) | `__RDDB_input__` | Useful when rendering several file uploaders on the same page, where each ID is required to be unique|
 |`RDDBIconStyle` (*optional, object*) | `{ width: '20px', height: '20px' }` | For passing extra styling to the default file upload icon. |
+| `RDDBAcceptMultiple` (*optional, bool*) | `true` | Whether to accept multiple file uploads |
 | `RDDBIconComponent` (*optional, Component*) | [feathericons](https://feathericons.com/) svg | Use this to pass a file upload icon of your choice. The only requirement is that it must be an `svg` element wrapped up as a `React` component. Default is shown [below](#default-icon). |
 | `RDDBDisplayText` (*optional, string*) | *Drag a file here to upload or click here to browse for files.* | Set your preferred display text.|
 | `RDDBDisplayTextClass` (*optional, string*) | none | For styling the display text. |

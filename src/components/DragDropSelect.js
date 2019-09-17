@@ -11,7 +11,7 @@ const DragDropSelect = props => {
     RDDBAcceptMultiple,
     RDDBIconComponent,
     RDDBDragDropHandler,
-    RDDBSelectFileHandler,
+    RDDBFileBrowserHandler,
     RDDBFileBrowserDivClass,
     RDDBFileBrowserDivStyle,
     RDDBDisplayText,
@@ -24,10 +24,11 @@ const DragDropSelect = props => {
       <FileBrowser
         RDDBInputID={RDDBInputID}
         RDDBIconStyle={RDDBIconStyle}
+        RDDBAcceptMultiple={RDDBAcceptMultiple}
         RDDBIconComponent={RDDBIconComponent}
         RDDBDisplayText={RDDBDisplayText}
         RDDBDisplayTextClass={RDDBDisplayTextClass}
-        RDDBFileBrowserHandler={RDDBSelectFileHandler}
+        RDDBFileBrowserHandler={RDDBFileBrowserHandler}
         RDDBFileBrowserDivClass={RDDBFileBrowserDivClass}
         RDDBFileBrowserDivStyle={RDDBFileBrowserDivStyle}
         RDDBAcceptFileTypes={RDDBAcceptFileTypes}
@@ -46,7 +47,7 @@ DragDropSelect.propTypes = {
   RDDBFileBrowserDivClass: propTypes.string,
   RDDBFileBrowserDivStyle: propTypes.object,
   RDDBDragDropHandler: propTypes.func.isRequired,
-  RDDBSelectFileHandler: propTypes.func.isRequired,
+  RDDBFileBrowserHandler: propTypes.func.isRequired,
   RDDBAcceptFileTypes: propTypes.string,
 };
 
