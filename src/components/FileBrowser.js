@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-const FeatherIconUpload = () => {
+const FeatherIconUploadIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,58 +24,58 @@ const FeatherIconUpload = () => {
 
 const FileBrowser = props => {
   const {
-    RDDSinputID,
-    RDDSiconStyle,
-    RDDSiconComponent,
-    RDDSfileBrowserHandler,
-    RDDSfileBrowserDivClass,
-    RDDSfileBrowserDivStyle,
-    RDDSdisplayText,
-    RDDSdisplayTextClass,
-    RDDSacceptFileTypes,
+    RDDBInputID,
+    RDDBIconStyle,
+    RDDBIconComponent,
+    RDDBFileBrowserHandler,
+    RDDBFileBrowserDivClass,
+    RDDBFileBrowserDivStyle,
+    RDDBDisplayText,
+    RDDBDisplayTextClass,
+    RDDBAcceptFileTypes,
   } = props;
 
   const pickHandler = e => {
     e.preventDefault();
     e.stopPropagation();
-    RDDSfileBrowserHandler([ ...e.target.files ]);
+    RDDBFileBrowserHandler([ ...e.target.files ]);
   };
 
   return (
     <div
-      className={RDDSfileBrowserDivClass}
-      style={RDDSfileBrowserDivStyle}
+      className={RDDBFileBrowserDivClass}
+      style={RDDBFileBrowserDivStyle}
     >
-      {RDDSiconComponent !== undefined ? (
-        <RDDSiconComponent
-          style={{ width: '20px', height: '20px', ...RDDSiconStyle }}
+      {RDDBIconComponent !== undefined ? (
+        <RDDBIconComponent
+          style={{ width: '20px', height: '20px', ...RDDBIconStyle }}
         />
       ) : (
-        <FeatherIconUpload
-          style={{ width: '20px', height: '20px', ...RDDSiconStyle }}
+        <FeatherIconUploadIcon
+          style={{ width: '20px', height: '20px', ...RDDBIconStyle }}
         />
       )}
 
       <p>
         {' '}
         <button
-          className={RDDSdisplayTextClass}
+          className={RDDBDisplayTextClass}
           onClick={() => {
             document
-              .getElementById('__RDDS_react_component_input__')
+              .getElementById('__RDDB_input__')
               .click();
           }}
         >
-          {RDDSdisplayText ||
+          {RDDBDisplayText ||
                         'Drag a file here to upload or click here to browse for files.'}
         </button>
         <input
           onChange={e => pickHandler(e)}
           style={{ display: 'none' }}
-          id={RDDSinputID || '__RDDS_react_component_input__'}
+          id={RDDBInputID || '__RDDB_input__'}
           type="file"
           multiple
-          accept={RDDSacceptFileTypes}
+          accept={RDDBAcceptFileTypes}
         />
       </p>
     </div>
@@ -83,15 +83,15 @@ const FileBrowser = props => {
 };
 
 FileBrowser.propTypes = {
-  RDDSinputID: propTypes.string,
-  RDDSiconStyle: propTypes.object,
-  RDDSiconComponent: propTypes.func,
-  RDDSdisplayText: propTypes.string,
-  RDDSdisplayTextClass: propTypes.string,
-  RDDSfileBrowserDivClass: propTypes.string,
-  RDDSfileBrowserDivStyle: propTypes.object,
-  RDDSfileBrowserHandler: propTypes.func.isRequired,
-  RDDSacceptFileTypes: propTypes.string,
+  RDDBInputID: propTypes.string,
+  RDDBIconStyle: propTypes.object,
+  RDDBIconComponent: propTypes.func,
+  RDDBDisplayText: propTypes.string,
+  RDDBDisplayTextClass: propTypes.string,
+  RDDBFileBrowserDivClass: propTypes.string,
+  RDDBFileBrowserDivStyle: propTypes.object,
+  RDDBFileBrowserHandler: propTypes.func.isRequired,
+  RDDBAcceptFileTypes: propTypes.string,
 };
 
 export default FileBrowser;

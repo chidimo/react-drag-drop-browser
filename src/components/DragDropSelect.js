@@ -6,46 +6,46 @@ import FileBrowser from './FileBrowser';
 
 const DragDropSelect = props => {
   const {
-    RDDSinputID,
-    RDDSiconStyle,
-    RDDSiconComponent,
-    RDDSdragDropHandler,
-    RDDSselectFileHandler,
-    RDDSfileBrowserDivClass,
-    RDDSfileBrowserDivStyle,
-    RDDSdisplayText,
-    RDDSdisplayTextClass,
-    RDDSacceptFileTypes,
+    RDDBInputID,
+    RDDBIconStyle,
+    RDDBIconComponent,
+    RDDBDragDropHandler,
+    RDDBSelectFileHandler,
+    RDDBFileBrowserDivClass,
+    RDDBFileBrowserDivStyle,
+    RDDBDisplayText,
+    RDDBDisplayTextClass,
+    RDDBAcceptFileTypes,
   } = props;
 
   return (
-    <DragAndDrop RDDSfileDropHandler={RDDSdragDropHandler}>
+    <DragAndDrop RDDBFileDropHandler={RDDBDragDropHandler}>
       <FileBrowser
-        RDDSinputID={RDDSinputID}
-        RDDSiconStyle={RDDSiconStyle}
-        RDDSiconComponent={RDDSiconComponent}
-        RDDSdisplayText={RDDSdisplayText}
-        RDDSdisplayTextClass={RDDSdisplayTextClass}
-        RDDSfileBrowserHandler={RDDSselectFileHandler}
-        RDDSfileBrowserDivClass={RDDSfileBrowserDivClass}
-        RDDSfileBrowserDivStyle={RDDSfileBrowserDivStyle}
-        RDDSacceptFileTypes={RDDSacceptFileTypes}
+        RDDBInputID={RDDBInputID}
+        RDDBIconStyle={RDDBIconStyle}
+        RDDBIconComponent={RDDBIconComponent}
+        RDDBDisplayText={RDDBDisplayText}
+        RDDBDisplayTextClass={RDDBDisplayTextClass}
+        RDDBFileBrowserHandler={RDDBSelectFileHandler}
+        RDDBFileBrowserDivClass={RDDBFileBrowserDivClass}
+        RDDBFileBrowserDivStyle={RDDBFileBrowserDivStyle}
+        RDDBAcceptFileTypes={RDDBAcceptFileTypes}
       />
     </DragAndDrop>
   );
 };
 
 DragDropSelect.propTypes = {
-  RDDSinputID: propTypes.string,
-  RDDSiconStyle: propTypes.object,
-  RDDSiconComponent: propTypes.func,
-  RDDSdisplayText: propTypes.string,
-  RDDSdisplayTextClass: propTypes.string,
-  RDDSfileBrowserDivClass: propTypes.string,
-  RDDSfileBrowserDivStyle: propTypes.object,
-  RDDSdragDropHandler: propTypes.func.isRequired,
-  RDDSselectFileHandler: propTypes.func.isRequired,
-  RDDSacceptFileTypes: propTypes.string,
+  RDDBInputID: propTypes.string,
+  RDDBIconStyle: propTypes.object,
+  RDDBIconComponent: propTypes.func,
+  RDDBDisplayText: propTypes.string,
+  RDDBDisplayTextClass: propTypes.string,
+  RDDBFileBrowserDivClass: propTypes.string,
+  RDDBFileBrowserDivStyle: propTypes.object,
+  RDDBDragDropHandler: propTypes.func.isRequired,
+  RDDBSelectFileHandler: propTypes.func.isRequired,
+  RDDBAcceptFileTypes: propTypes.string,
 };
 
 export default DragDropSelect;

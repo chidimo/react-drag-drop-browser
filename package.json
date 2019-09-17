@@ -1,7 +1,7 @@
 {
     "name": "react-drag-drop-browser",
-    "version": "1.1.0",
-    "description": "Simple and customizable react drag and drop, with file browser, component.",
+    "version": "1.1.1",
+    "description": "Simple, customizable react drag and drop component. Also has a file browser.",
     "main": "dist/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
