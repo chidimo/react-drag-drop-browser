@@ -26,6 +26,7 @@ const FileBrowser = props => {
   const {
     RDDBInputID,
     RDDBIconStyle,
+    RDDBAcceptMultiple,
     RDDBIconComponent,
     RDDBFileBrowserHandler,
     RDDBFileBrowserDivClass,
@@ -76,7 +77,7 @@ const FileBrowser = props => {
           style={{ display: 'none' }}
           id={inputID}
           type="file"
-          multiple
+          multiple={ RDDBAcceptMultiple || true }
           accept={RDDBAcceptFileTypes}
         />
       </p>
@@ -87,6 +88,7 @@ const FileBrowser = props => {
 FileBrowser.propTypes = {
   RDDBInputID: propTypes.string,
   RDDBIconStyle: propTypes.object,
+  RDDBAcceptMultiple: propTypes.bool,
   RDDBIconComponent: propTypes.func,
   RDDBDisplayText: propTypes.string,
   RDDBDisplayTextClass: propTypes.string,

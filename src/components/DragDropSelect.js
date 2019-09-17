@@ -8,6 +8,7 @@ const DragDropSelect = props => {
   const {
     RDDBInputID,
     RDDBIconStyle,
+    RDDBAcceptMultiple,
     RDDBIconComponent,
     RDDBDragDropHandler,
     RDDBSelectFileHandler,
@@ -38,6 +39,7 @@ const DragDropSelect = props => {
 DragDropSelect.propTypes = {
   RDDBInputID: propTypes.string,
   RDDBIconStyle: propTypes.object,
+  RDDBAcceptMultiple: propTypes.bool,
   RDDBIconComponent: propTypes.func,
   RDDBDisplayText: propTypes.string,
   RDDBDisplayTextClass: propTypes.string,
