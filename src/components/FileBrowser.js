@@ -41,6 +41,8 @@ const FileBrowser = props => {
     RDDBFileBrowserHandler([ ...e.target.files ]);
   };
 
+  const inputID = RDDBInputID || '__RDDB_input__';
+
   return (
     <div
       className={RDDBFileBrowserDivClass}
@@ -62,7 +64,7 @@ const FileBrowser = props => {
           className={RDDBDisplayTextClass}
           onClick={() => {
             document
-              .getElementById('__RDDB_input__')
+              .getElementById(inputID)
               .click();
           }}
         >
@@ -72,7 +74,7 @@ const FileBrowser = props => {
         <input
           onChange={e => pickHandler(e)}
           style={{ display: 'none' }}
-          id={RDDBInputID || '__RDDB_input__'}
+          id={inputID}
           type="file"
           multiple
           accept={RDDBAcceptFileTypes}
