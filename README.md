@@ -6,6 +6,8 @@ Demo URL <https://codesandbox.io/embed/react-drag-drop-browser-demo-6j6rl>
 
 [NPM](https://www.npmjs.com/) package URL: <https://www.npmjs.com/package/react-drag-drop-browser>
 
+Current version: `1.1.5`
+
 ## Installation
 
 Installation can be done with `yarn` or `npm`
