@@ -15,8 +15,6 @@ const DragAndDrop = props => {
     e.preventDefault();
     e.stopPropagation();
     setDragCounter(dragCounter++);
-    // eslint-disable-next-line no-console
-    console.log('insideDragArea');
     if (e.dataTransfer.items && e.dataTransfer.files.length > 0) {
       setInsideDragArea(true);
     }
@@ -27,8 +25,6 @@ const DragAndDrop = props => {
     e.stopPropagation();
     setDragCounter(dragCounter--);
     if (dragCounter > 0) return;
-    // eslint-disable-next-line no-console
-    console.log('NOT insideDragArea');
     setInsideDragArea(false);
   };
 

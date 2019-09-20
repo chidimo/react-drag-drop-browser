@@ -67,14 +67,24 @@ const FileBrowser = props => {
           {RDDBDisplayText ||
             'Drag a file here to upload or click here to browse for files.'}
         </button>
-        <input
+        {RDDBAcceptMultiple ? (
+          <input
           onChange={e => pickHandler(e)}
           style={{ display: 'none' }}
           id={inputID}
           type="file"
-          multiple={RDDBAcceptMultiple || true}
+          multiple
           accept={RDDBAcceptFileTypes}
         />
+        ) : (
+          <input
+          onChange={e => pickHandler(e)}
+          style={{ display: 'none' }}
+          id={inputID}
+          type="file"
+          accept={RDDBAcceptFileTypes}
+        />
+        )}
       </p>
     </div>
   );
