@@ -69,20 +69,24 @@ const FileBrowser = props => {
         </button>
         {RDDBAcceptMultiple ? (
           <input
-          onChange={e => pickHandler(e)}
-          style={{ display: 'none' }}
-          id={inputID}
-          type="file"
           multiple
+          value=""
+          type="file"
+          id={inputID}
+          style={{ display: 'none' }}
           accept={RDDBAcceptFileTypes}
+          autoComplete={"new-password"}
+          onChange={e => pickHandler(e)}
         />
         ) : (
           <input
-          onChange={e => pickHandler(e)}
-          style={{ display: 'none' }}
-          id={inputID}
+          value=""
           type="file"
+          id={inputID}
+          style={{ display: 'none' }}
           accept={RDDBAcceptFileTypes}
+          autoComplete={"new-password"}
+          onChange={e => pickHandler(e)}
         />
         )}
       </p>
