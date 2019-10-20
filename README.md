@@ -136,3 +136,7 @@ const FiUpload = () => {
   );
 };
 ```
+
+## Credits
+
+1. [Publish a react component as npm module](https://parastudios.de/create-a-react-component-as-npm-module/)
