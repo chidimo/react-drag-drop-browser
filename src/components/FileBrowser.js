@@ -7,6 +7,7 @@ const FileBrowser = props => {
   const {
     inputID,
     RDDBIconStyle,
+    insideDragArea,
     RDDBDisplayText,
     RDDBIconComponent,
     RDDBAcceptMultiple,
@@ -25,8 +26,11 @@ const FileBrowser = props => {
 
   return (
     <div
+      style={{
+        ...RDDBFileBrowserDivStyle,
+        border: insideDragArea ? "1px dotted #07F" : ""
+      }}
       className={RDDBFileBrowserDivClass}
-      style={RDDBFileBrowserDivStyle}
       onClick={() => {
         document.getElementById(inputID).click();
       }}
@@ -74,15 +78,16 @@ const FileBrowser = props => {
 
 FileBrowser.propTypes = {
   inputID: propTypes.string,
+  insideDragArea: propTypes.bool,
   RDDBIconStyle: propTypes.object,
   RDDBAcceptMultiple: propTypes.bool,
   RDDBIconComponent: propTypes.func,
   RDDBDisplayText: propTypes.string,
   RDDBDisplayTextClass: propTypes.string,
+  RDDBAcceptFileTypes: propTypes.string,
   RDDBFileBrowserDivClass: propTypes.string,
   RDDBFileBrowserDivStyle: propTypes.object,
-  RDDBFileBrowserHandler: propTypes.func.isRequired,
-  RDDBAcceptFileTypes: propTypes.string
+  RDDBFileBrowserHandler: propTypes.func.isRequired
 };
 
 export default FileBrowser;
