@@ -1,35 +1,53 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import propTypes from 'prop-types';
 
 const DragAndDrop = props => {
   const { RDDBFileDropHandler, children } = props;
 
-  // eslint-disable-next-line no-unused-vars
-  const [ dragging, setDragging ] = useState(false);
-  const [ insideDragArea, setInsideDragArea ] = useState(false);
-  let [ dragCounter, setDragCounter ] = useState(0);
-  // eslint-disable-next-line no-unused-vars
-  const [ dropped, setDropped ] = useState(false);
+  const initState = {
+    dragCounter: 0,
+    dropped: false,
+    dragging: false,
+    insideDragArea: false,
+  }
+
+  const reducer = (state, action) => {
+    switch(action.type) {
+      case 'SET_DRAG_COUNTER':
+        return { ...state, dragCounter: action.dragCounter}
+      case 'SET_DROPPED':
+        return { ...state, dropped: action.dropped};
+      case 'SET_INSIDE_DRAG_AREA':
+        return { ...state, insideDragArea: action.insideDragArea};
+      case 'SET_DRAGGING':
+        return { ...state, dragging: action.dragging};
+      default:
+        return state;
+    }
+  }
+
+  const [info, dispatch] = useReducer(reducer, initState)
 
   const handleDragEnter = e => {
     e.preventDefault();
     e.stopPropagation();
-    setDragCounter(dragCounter++);
+
+    dispatch({ type: 'SET_DRAG_COUNTER', dragCounter: info.dragCounter+1})
     if (e.dataTransfer.items && e.dataTransfer.files.length > 0) {
-      setInsideDragArea(true);
+      dispatch({ type: 'SET_INSIDE_DRAG_AREA', insideDragArea: true})
     }
   };
 
   const handleDragLeave = e => {
     e.preventDefault();
     e.stopPropagation();
-    setDragCounter(dragCounter--);
-    if (dragCounter > 0) return;
-    setInsideDragArea(false);
+
+    dispatch({ type: 'SET_DRAG_COUNTER', dragCounter: info.dragCounter-1})
+    if (info.dragCounter > 0) return;
+    dispatch({ type: 'SET_INSIDE_DRAG_AREA', insideDragArea: false})
   };
 
   const handleDragOver = e => {
-    // just override this
     e.preventDefault();
     e.stopPropagation();
   };
@@ -37,31 +55,33 @@ const DragAndDrop = props => {
   const handleDrop = e => {
     e.preventDefault();
     e.stopPropagation();
-    setDragging(false);
+
+    dispatch({ type: 'SET_DRAGGING', dragging: false })
+
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       RDDBFileDropHandler([ ...e.dataTransfer.files ]);
       e.dataTransfer.clearData();
-      dragCounter = 0;
+      dispatch({ type: 'SET_DRAG_COUNTER', dragCounter: 0})
     }
-    setDropped(true);
+    dispatch({ type: 'SET_DROPPED', dropped: true })
   };
 
   return (
     <div
-      onDragEnter={e => handleDragEnter(e)}
-      onDragLeave={e => handleDragLeave(e)}
-      onDragOver={e => handleDragOver(e)}
-      onDrop={e => handleDrop(e)}
+        onDrop={e => handleDrop(e)}
+        onDragOver={e => handleDragOver(e)}
+        onDragEnter={e => handleDragEnter(e)}
+        onDragLeave={e => handleDragLeave(e)}
     >
-      {insideDragArea && <p>You can now drop</p>}
+      {info.insideDragArea && <p>You can now drop</p>}
       {children}
     </div>
   );
 };
 
 DragAndDrop.propTypes = {
-  children: propTypes.object,
-  RDDBFileDropHandler: propTypes.func,
+    children: propTypes.object,
+    RDDBFileDropHandler: propTypes.func,
 };
 
 export default DragAndDrop;

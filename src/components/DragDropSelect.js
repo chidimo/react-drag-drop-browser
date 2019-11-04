@@ -8,21 +8,23 @@ const DragDropSelect = props => {
   const {
     RDDBInputID,
     RDDBIconStyle,
-    RDDBAcceptMultiple,
+    RDDBDisplayText,
     RDDBIconComponent,
+    RDDBAcceptMultiple,
     RDDBDragDropHandler,
+    RDDBAcceptFileTypes,
+    RDDBDisplayTextClass,
     RDDBFileBrowserHandler,
     RDDBFileBrowserDivClass,
     RDDBFileBrowserDivStyle,
-    RDDBDisplayText,
-    RDDBDisplayTextClass,
-    RDDBAcceptFileTypes,
   } = props;
+
+  const inputID = RDDBInputID || '__RDDB_input__';
 
   return (
     <DragAndDrop RDDBFileDropHandler={RDDBDragDropHandler}>
       <FileBrowser
-        RDDBInputID={RDDBInputID}
+        inputID={inputID}
         RDDBIconStyle={RDDBIconStyle}
         RDDBAcceptMultiple={RDDBAcceptMultiple}
         RDDBIconComponent={RDDBIconComponent}
