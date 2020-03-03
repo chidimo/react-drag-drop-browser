@@ -6,6 +6,7 @@ import FiUpload from './FiUpload';
 const FileBrowser = props => {
   const {
     iconStyle,
+    inDropZone,
     messageText,
     IconComponent,
     allowedFileTypes,
@@ -22,7 +23,7 @@ const FileBrowser = props => {
   };
 
   return (
-    <div onClick={() => inputRef.current.click()} className="file-browser-zone">
+    <div onClick={() => inputRef.current.click()} className={inDropZone ? "file-browser-zone inside-drop-zone" : "file-browser-zone"}>
       {IconComponent !== undefined ? (
         <IconComponent
           style={{ width: '20px', height: '20px', ...iconStyle }}

@@ -8,7 +8,7 @@ import propTypes from 'prop-types';
 // we know we're not yet at the topmost div, and we don't set any state.
 
 const DragAndDrop = props => {
-  const { info, children, dispatch, inDropZone, fileDropHandler } = props;
+  const { info, children, dispatch, fileDropHandler } = props;
 
   const handleDragEnter = e => {
     e.preventDefault();
@@ -50,9 +50,7 @@ const DragAndDrop = props => {
 
   return (
     <div
-      className={
-        inDropZone ? 'drag-drop-zone inside-drag-area' : 'drag-drop-zone'
-      }
+      className={'drag-drop-zone'}
       onDrop={e => handleDrop(e)}
       onDragOver={e => handleDragOver(e)}
       onDragEnter={e => handleDragEnter(e)}
@@ -67,7 +65,6 @@ DragAndDrop.propTypes = {
   info: propTypes.object,
   dispatch: propTypes.func,
   children: propTypes.object,
-  inDropZone: propTypes.bool,
   fileDropHandler: propTypes.func,
 };
 
