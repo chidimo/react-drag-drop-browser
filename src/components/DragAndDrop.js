@@ -42,7 +42,6 @@ const DragAndDrop = props => {
 
     if (files && files.length > 0) {
       fileDropHandler(files);
-      e.dataTransfer.clearData();
       dispatch({ type: 'RESET_DROP_DEPTH', dropDepth: 0 });
     }
     dispatch({ type: 'RESET' });
