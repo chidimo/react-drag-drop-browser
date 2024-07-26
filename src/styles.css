@@ -1,0 +1,17 @@
+.inside-hot-zone {
+  opacity: 0.6;
+}
+
+.hot-zone {
+  border: 1px solid blue;
+  border-radius: 10px;
+  min-height: 100;
+  width: 100%;
+}
+
+.file-browser-button {
+  color: #1d4ed8;
+  border: 1px solid #1d4ed8;
+  border-radius: 5px;
+  padding: 10px;
+}
