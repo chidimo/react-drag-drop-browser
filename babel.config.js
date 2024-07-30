@@ -1,11 +1,19 @@
 module.exports = function (api) {
-	api.cache(true);
+  api.cache(false);
 
-	const presets = [ "@babel/preset-env", "@babel/preset-react" ];
-	const plugins = [ "transform-react-remove-prop-types" ];
+  const presets = [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+  ];
+  const plugins = [
+    "@babel/plugin-proposal-private-property-in-object",
+    "@babel/plugin-transform-private-property-in-object",
+    // "@babel/plugin-transform-private-methods",
+  ];
 
-	return {
-		presets,
-		plugins
-	};
+  return {
+    presets,
+    plugins,
+  };
 };

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false, // Set to false to generate both JS and declaration files
+    "importHelpers": true,
+    "removeComments": true,
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "allowJs": true,
+    "rootDir": "./src",
+    "outDir": "./dist/esm",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "strictNullChecks": false,
+    "baseUrl": "src",
+    "plugins": []
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

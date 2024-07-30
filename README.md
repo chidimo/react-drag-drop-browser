@@ -2,9 +2,9 @@
 
 Simple, customizable react drag and drop component. Also comes with a file browser.
 
-[NPM](https://www.npmjs.com/) package URL: <https://www.npmjs.com/package/react-drag-drop-browser>
+[![Coverage Status](https://coveralls.io/repos/github/chidimo/react-drag-drop-browser/badge.svg?branch=main)](https://coveralls.io/github/chidimo/react-drag-drop-browser?branch=main)
 
-Current version: `0.1.0`
+[NPM](https://www.npmjs.com/) package URL: <https://www.npmjs.com/package/react-drag-drop-browser>
 
 ## Installation
 
@@ -20,56 +20,40 @@ npm install react-drag-drop-browser
 
 ## Usage
 
-The included example app shows how to use the `DragDropSelect` component to build an array of `.pdf` files using the `useReducer` hook.
+Example app is on [Codesandbox](https://github.com/)
 
-## props
+## `<DragAndDrop />` props
 
-|       Prop       |       Default    |     Function     |
-| ---------------- | ---------------- | ---------------- |
-|`iconStyle` (*optional, object*) | `{ width: '20px', height: '20px' }` | For passing extra styling to the default file upload icon. |
-| `IconComponent` (*optional, Component*) | [feathericons](https://feathericons.com/) svg | Use this to pass a file upload icon of your choice. The only requirement is that it must be an `svg` element wrapped up as a `React` component. Default is shown [below](#default-icon). |
-| `messageText` (*optional, string*) | *Drag a file here to upload or click here to browse for files.* | Set your preferred display text.|
-| `allowedFileTypes` (*optional, string*) | none | Specify acceptable file types. |
-| `allowMultipleFiles` (*optional, bool*) | `false` | If file browser should accept multiple files |
-| `dragDropHandler` (*required, function*) | none | callback that receives an array of files |
-| `fileBrowserHandler` (*required, function*) | none | callback that receives an array of files |
+| Prop                                          | Default value   | Description                                                                                                                              |
+| --------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `zoneId` (_optional, string_)                 | hot-zone        | A unique id to identify the hot zone                                                                                                     |
+| `dataTestId` (_optional, string_)             | hot-zone        | `data-testid` of the hot zone                                                                                                            |
+| `children` (_optional, string, ReactElement_) | Drop files here |                                                                                                                                          |
+| `zoneClassName` (_optional, string_)          | hot-zone        | Class to style the `section` element                                                                                                     |
+| `inZoneClassName` (_optional, string_)        | inside-hot-zone | This class is applied when the dragged file is within the hot zone                                                                       |
+| `render` (_optional, ReactElement_)           | undefinded      | If this is defined, it takes precedence. In that case you have to attach the event handlers defined in the `DragAndDropRenderProps` prop |
+| `onDropFiles` (_required, function_)          |                 | A callback function that receives the array of files dropped into the hot zone                                                           |
 
-The file browser div has a class of `file-browser-zone`
-The drag and drop zone has a class of `drag-drop-zone`. When the item is inside the drag and drop zone, an additional class `inside-drop-zone` is activated. You may update the style at this time with CSS like so
+## `<FileBrowser />` props
 
-```css
-.drag-drop-zone.inside-drop-zone {
-  opacity: 0.5;
-  border: 2px dashed #07F;
-}
-```
+| Prop                                      | Default value                       | Description                                                                                          |
+| ----------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `dataTestId` (_optional, string_)         | file-browser                        | `data-testid` of the trigger button                                                                  |
+| `inputId` (_optional, string_)            | input-id                            | `id` of the input element                                                                            |
+| `multiple` (_optional, boolean_)          | `false`                             | Whether to allow selecting multiple files                                                            |
+| `allowedFileTypes` (_optional, string[]_) | `[".pdf", ".jpeg", ".png", ".jpg"]` | The kinds of files to select                                                                         |
+| `pickerBtnText` (_optional, string_)      | Click here to browse files          | Text of the file picker trigger button                                                               |
+| `pickerBtnClassName` (_optional, string_) | file-browser-button                 | Class to style the trigger button                                                                    |
+| `render` (_optional, ReactElement_)       | undefined                           | If this is defined, then the button is not rendered. It accepts an object with an `onClick` property |
+| `onSelectFiles` (_required, function_)    |                                     | A callback function that receives the array of files dropped in the hot zone                         |
 
-### Default icon
+## Contributing
 
-```javascript
-const FiUpload = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="feather feather-upload"
-    >
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-      <polyline points="17 8 12 3 7 8"></polyline>
-      <line x1="12" y1="3" x2="12" y2="15"></line>
-    </svg>
-  );
-};
-```
-
+1. Clone the repository
+1. Open a terminal and `cd` into the `dev-app/` folder and `package/` folder and run `yarn install` in both separately
+1. Linking for development. Inside `package/` run `npm link`. Then navigate to the `dev-app/` folder and run `yarn link react-drag-drop-browser`
 
 ## Credits
 
 1. [Publish a react component as npm module](https://parastudios.de/create-a-react-component-as-npm-module/)
+1. [This inspired me to take a closer look at the implementation of the dragenter and dragleave events](https://www.smashingmagazine.com/2020/02/html-drag-drop-api-react/#comment-1582548344340022624)
