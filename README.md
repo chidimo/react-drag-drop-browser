@@ -4,7 +4,7 @@ Simple, customizable react drag and drop component. Also comes with a file brows
 
 [![Coverage Status](https://coveralls.io/repos/github/chidimo/react-drag-drop-browser/badge.svg?branch=main)](https://coveralls.io/github/chidimo/react-drag-drop-browser?branch=main)
 
-[NPM](https://www.npmjs.com/) package URL: <https://www.npmjs.com/package/react-drag-drop-browser>
+[NPM page](https://www.npmjs.com/package/react-drag-drop-browser) | [Run example app on codesandbox](https://codesandbox.io/s/github/chidimo/react-drag-drop-browser/tree/main/example)
 
 ## Installation
 
@@ -19,8 +19,6 @@ npm install react-drag-drop-browser
 ```
 
 ## Usage
-
-Example app is on [Codesandbox](https://github.com/)
 
 ## `<DragAndDrop />` props
 
