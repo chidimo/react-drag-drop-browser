@@ -5,6 +5,7 @@ import { classNames } from "../lib/join-classes";
 interface Props {
   dataTestId?: string;
   inputId: string;
+  maxSizeInMB?: number;
   multiple?: boolean;
   allowedFileTypes?: string[];
   pickerBtnText?: string | ReactElement;
@@ -15,8 +16,9 @@ interface Props {
 
 export default function FileBrowser(props: Readonly<Props>) {
   const {
-    inputId = "input-id",
     dataTestId = "file-browser",
+    inputId = "input-id",
+    maxSizeInMB = 1,
     multiple = false,
     allowedFileTypes = [".pdf", ".jpeg", ".png", ".jpg"],
     pickerBtnText = "Click here to browse files",
@@ -25,6 +27,7 @@ export default function FileBrowser(props: Readonly<Props>) {
     onSelectFiles,
   } = props;
 
+  const sizeInBytes = maxSizeInMB * 1024 * 1024;
   const isStringPicker = typeof pickerBtnText === "string";
 
   const nopickerBtnText =
@@ -37,7 +40,12 @@ export default function FileBrowser(props: Readonly<Props>) {
   const pickFileHandler = (e: FileEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    onSelectFiles([...e.target.files]);
+
+    const fileArray = Array.from(e.target.files).filter(
+      (file) => file.size <= sizeInBytes
+    );
+
+    onSelectFiles(fileArray);
   };
 
   if (render === undefined && nopickerBtnText) {

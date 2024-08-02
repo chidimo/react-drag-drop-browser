@@ -100,7 +100,7 @@ test("uploads files when dropped in a child element", async () => {
   });
 });
 
-test("uploads files when with a RENDER prop", async () => {
+test("uploads files with a RENDER prop", async () => {
   userEvent.setup();
   const testId = "dragDropWithRenderProps";
 

@@ -5,6 +5,7 @@ import { classNames } from "../lib/join-classes";
 interface Props {
   zoneId: string;
   dataTestId?: string;
+  maxSizeInMB?: number;
   children?: string | ReactElement;
   zoneClassName?: HTMLAttributes<HTMLElement>["className"];
   inZoneClassName?: HTMLAttributes<HTMLElement>["className"];
@@ -22,6 +23,7 @@ export default function DragAndDrop(props: Readonly<Props>) {
   const {
     zoneId = "hot-zone",
     dataTestId = "hot-zone",
+    maxSizeInMB = 1,
     children = "Drop files here",
     inZoneClassName = "inside-hot-zone",
     zoneClassName = "hot-zone",
@@ -29,6 +31,7 @@ export default function DragAndDrop(props: Readonly<Props>) {
     onDropFiles,
   } = props;
 
+  const sizeInBytes = maxSizeInMB * 1024 * 1024;
   const [state, setState] = useState(initState);
 
   const resetState = () => {
@@ -82,17 +85,26 @@ export default function DragAndDrop(props: Readonly<Props>) {
     e.preventDefault();
     e.stopPropagation();
 
+    const target = e.target as HTMLElement;
+    const currentTarget = e.currentTarget as HTMLElement;
+
     e.dataTransfer.dropEffect = "copy";
-    setState((prev) => ({ ...prev, dragging: true }));
+    setState((prev) => ({
+      ...prev,
+      dragging: true,
+      inDropZone: currentTarget?.contains(target),
+    }));
   };
 
   const handleDrop = (e: RDBDragEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const files = e.dataTransfer.files;
+    const fileArray = Array.from(e.dataTransfer.files).filter(
+      (file) => file.size <= sizeInBytes
+    );
 
-    onDropFiles([...files]);
+    onDropFiles(fileArray);
     resetState();
   };
 
