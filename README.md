@@ -18,6 +18,10 @@ yarn add react-drag-drop-browser
 npm install react-drag-drop-browser
 ```
 
+## <span style="color:red">‼️ Important</span>
+
+The maximum allowed file size is set to `1MB` by default and can be changed as required. This is worth mentiontioning because there is no feedback provided. If you need to do that you should do the check yourself. I only included it as a sensible default to prevent the inadvertent upload of very large files.
+
 ## Usage
 
 ## `<DragAndDrop />` props
@@ -26,6 +30,7 @@ npm install react-drag-drop-browser
 | --------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `zoneId` (_optional, string_)                 | hot-zone        | A unique id to identify the hot zone                                                                                                     |
 | `dataTestId` (_optional, string_)             | hot-zone        | `data-testid` of the hot zone                                                                                                            |
+| `maxSizeInMB` (_optional, number_)            | 1               | maximum allowed file size                                                                                                                |
 | `children` (_optional, string, ReactElement_) | Drop files here |                                                                                                                                          |
 | `zoneClassName` (_optional, string_)          | hot-zone        | Class to style the `section` element                                                                                                     |
 | `inZoneClassName` (_optional, string_)        | inside-hot-zone | This class is applied when the dragged file is within the hot zone                                                                       |
@@ -37,6 +42,7 @@ npm install react-drag-drop-browser
 | Prop                                      | Default value                       | Description                                                                                          |
 | ----------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `dataTestId` (_optional, string_)         | file-browser                        | `data-testid` of the trigger button                                                                  |
+| `maxSizeInMB` (_optional, number_)        | 1                                   | maximum allowed file size                                                                            |
 | `inputId` (_optional, string_)            | input-id                            | `id` of the input element                                                                            |
 | `multiple` (_optional, boolean_)          | `false`                             | Whether to allow selecting multiple files                                                            |
 | `allowedFileTypes` (_optional, string[]_) | `[".pdf", ".jpeg", ".png", ".jpg"]` | The kinds of files to select                                                                         |

@@ -1,6 +1,6 @@
 {
   "name": "react-drag-drop-browser",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "type": "module",
   "description": "Simple, customizable components for selecting files, with drag and drop.",
   "repository": {
