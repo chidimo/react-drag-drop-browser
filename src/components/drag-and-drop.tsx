@@ -82,8 +82,15 @@ export default function DragAndDrop(props: Readonly<Props>) {
     e.preventDefault();
     e.stopPropagation();
 
+    const target = e.target as HTMLElement;
+    const currentTarget = e.currentTarget as HTMLElement;
+
     e.dataTransfer.dropEffect = "copy";
-    setState((prev) => ({ ...prev, dragging: true }));
+    setState((prev) => ({
+      ...prev,
+      dragging: true,
+      inDropZone: currentTarget?.contains(target),
+    }));
   };
 
   const handleDrop = (e: RDBDragEvent) => {
